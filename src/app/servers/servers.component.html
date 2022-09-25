@@ -1,1 +1,26 @@
+
 <p>servers works!</p>
+<button 
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()"> <!---square brackets indicate we want to bind some property from html to TS. we pass in an expression to create a dynamically updated attribute. --->
+    Add Server
+</button>
+<p>{{'Allow Creation of a New Server?:'}}</p>
+<p [innerText]="allowNewServer">{{allowNewServer}}</p> 
+<p >{{serverCreationStatus}}</p>
+<!--example of property binding. however, don't mix property binding and string interpolation!-->
+<!--<p [innerText]="{{allowNewServer}}">{{allowNewServer}}</p>  this will not work!  -->
+<label>Server Name</label>
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)" 
+> -->
+<!---$event simply refers to the data the user entered with that event--->
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName" 
+>
+<p>{{serverName}}</p> <!---this is an example of two way data binding-->

@@ -1,1 +1,13 @@
 <h1>You are a successful software developer!</h1>
+<label>Enter your username, you badass Software Engineer, you!</label>
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="username" 
+>
+<p>{{username}}</p>
+<button
+    class="btn btn-primary"
+    [disabled]="username == ''"
+    (click)="onEnterUsername()"
+>Click When Ready</button>

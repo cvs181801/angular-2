@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { WarningAlertComponent } from './warning-alert/warning-alert.component';
     SuccessAlertComponent //this tells angular this component becomes part of this module - but typescript still can't find it, unless it's imported above.
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent] //'bootstrap' tells angular to put this component at the root

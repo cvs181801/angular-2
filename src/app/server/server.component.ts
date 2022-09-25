@@ -8,5 +8,7 @@ import { Component } from "@angular/core";
 })
 
 export class ServerComponent {
-    title="server"
+    title: string = "server"; //let's render this string in the html using string interpolation. check the html file to see it in action.
+    serverId: number = 10
+    sayHi() {return `'Hi!!!' ${this.title}`} //this is the syntax for defining a method in TS.
 }
