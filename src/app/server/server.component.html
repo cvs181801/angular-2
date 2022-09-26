@@ -1,2 +1,4 @@
 <h1>{{title}}</h1> <!-- you can call a property which returns/resolves to a string. -->
 <p>{{serverId}}{{sayHi()}}</p><!-- hint: you can also call a method inside the brackets which returns a string. -->
+<p [ngStyle]="{backgroundColor: getColor()}">Server with ID {{serverId}} is {{getServerStatus()}}</p>
+<p [ngClass]="{online: serverStatus === 'online'}">YO</p>
