@@ -32,3 +32,16 @@
 </ng-template>
 
 <app-server *ngFor="let server of servers">{{serverName}}</app-server> <!--the *ngFor directive allows us to essentially loop through and render as each server is created -->
+<button
+    class="btn btn-primary"
+    (click)="onDisplaySecretText()"
+    [innerText]="displayButtonText" 
+>
+    {{displayButtonText}}
+</button>
+<p>{{secretText}}</p>
+<p 
+    *ngFor="let timestamp of timestamps"
+    [ngStyle]="{'background-color': timestamps.indexOf(timestamp) >= 5 ? 'blue' : 'white'}"
+    [ngClass]="{moreThan5: timestamps.indexOf(timestamp) >= 5}"
+>{{timestamp}}</p> 
