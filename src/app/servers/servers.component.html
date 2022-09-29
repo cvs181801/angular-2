@@ -40,8 +40,13 @@
     {{displayButtonText}}
 </button>
 <p>{{secretText}}</p>
-<p 
+<!-- <p 
     *ngFor="let timestamp of timestamps"
     [ngStyle]="{'background-color': timestamps.indexOf(timestamp) >= 5 ? 'blue' : 'white'}"
     [ngClass]="{moreThan5: timestamps.indexOf(timestamp) >= 5}"
+>{{timestamp}}</p>  -->
+<p 
+    *ngFor="let timestamp of timestamps; let i = index"
+    [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'white'}"
+    [ngClass]="{moreThan5: i >= 4}"
 >{{timestamp}}</p> 
