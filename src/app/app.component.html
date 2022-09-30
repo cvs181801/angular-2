@@ -1,6 +1,16 @@
 <h1>YAY</h1>
- <app-server></app-server> 
- <!-- <app-servers></app-servers> -->
+<app-server 
+    *ngFor="let serverElement of serverElements"
+    [srvElement]="serverElement"
+>
+</app-server>  
+<div 
+    class="app-servers"     
+    style="background: aqua;"
+    (tryThisBoom)="tryThisClick($any($event))"
+    >
+</div> <!---the $event is a parameter / placeholder for the data we expect to come through in this custom event-->
+ 
  <div class="app-servers"></div>
  <app-warning-alert></app-warning-alert>
  <app-success-alert></app-success-alert>

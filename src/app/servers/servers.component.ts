@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   //selector: 'app-servers', //this is a way to select via component name,
@@ -9,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styles: [`.moreThan5 { color: white;}`]
 })
 export class ServersComponent implements OnInit {
+  //@Output onCreateServer = new EventEmitter<{serverCreated: boolean, serverCreationStatus: string, serverName: string}>();
+  @Output() tryThisClick = new EventEmitter<{boomName: string, boomContent: string}>();
+  
   allowNewServer = false;
   serverCreated = false;
   displayButtonText = 'Display Details';
@@ -18,6 +21,8 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'no server was created!';
   servers = ['spongebobServer', 'patrickStarServer']
   timestamps = [];
+  boomClickName = "boom";
+  boomClickContent = "Wut";
   
   constructor() { 
     setTimeout(()=>{
@@ -26,6 +31,11 @@ export class ServersComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  // onCreateServer(serverCreated: boolean, serverCreationStatus: string, serverName: string ){
+  //   this.serverCreated = true;
+  //   this.serverCreationStatus = `server was created! Name: ${this.serverName}`;
+  //   this.servers.push(this.serverName);
+  // }
   onCreateServer(){
     this.serverCreated = true;
     this.serverCreationStatus = `server was created! Name: ${this.serverName}`;
@@ -41,6 +51,7 @@ export class ServersComponent implements OnInit {
       this.secretText = `top secret engineering text displayed!`;
       this.displayButtonText = 'Hide Details';
       this.timestamps.push(new Date());
+      //this.servers.push({name: this.serverName})
     }
     else {
       this.displaySecretText = false;
@@ -52,9 +63,11 @@ export class ServersComponent implements OnInit {
   setColor() {
     return this.timestamps.length >= 5 ? 'blue' : 'none'
   }
-  // constructor() {
-  //   this.timestamps.length >= 5  ? 'moreThan5' : ''
-  // }
+
+  boomClick() {
+    this.tryThisClick.emit({boomName: this.boomClickName, boomContent: this.boomClickContent});
+  }
+ 
 }
 
 

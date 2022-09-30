@@ -12,5 +12,27 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-2';
+  serverElements = [{type: 'spongebobserver', name: 'spongebob', content: "I'm ready!"}];
+  //servers = ['spongebobServer', 'patrickStarServer'];
+
+  // onCreateServer(serverCreated: boolean, serverCreationStatus: string, serverName: string ){
+  //   serverCreated = true;
+  //   serverCreationStatus = `server was created! Name: ${serverName}`;
+  //   this.servers.push(serverName);
+  // }
+
+  tryThisClick(boomData: {boomName: string, boomContent: string}){
+    this.serverElements.push({
+      type: 'boom',
+      name: boomData.boomName,
+      content: boomData.boomContent
+    })
+  }
+
 }
-//small change 
+//databinding is communication between typescript and HTML.
+//string interpolation: {{some string}} 
+//property binding.: [property] = data
+//from tthe other direction, html to typescript, we can react to user events / mouse events etc using event binding
+//(event) = 'expression'
+//combo of both; two way binding: [(ngModel)] = 'data'
